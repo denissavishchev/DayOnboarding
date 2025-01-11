@@ -11,7 +11,7 @@ import SwiftUI
 struct DayOnboardingApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            LanguageView()
         }
     }
 }
