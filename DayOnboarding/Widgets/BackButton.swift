@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct BackButtonView: View {
+struct BackButton: View {
     
     @Environment(\.dismiss) var dismiss
     

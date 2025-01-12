@@ -13,10 +13,10 @@ struct LanguageView: View {
                     .padding(.top, 50)
                     .padding(.bottom, 80)
                 FlagsButtons()
+                    .padding(.bottom, 50)
                 
+                NextButton(toView: SwitchView())
                 Spacer()
-                
-                NextButton()
             }
             .background(LinearGradient(gradient: Gradient(colors: [.darkBlue, .dark]), startPoint: .top, endPoint: .bottom))
         }

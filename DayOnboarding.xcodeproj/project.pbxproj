@@ -15,6 +15,7 @@
 		F2ACF4542D32DC4100368E3E /* BackButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ACF4532D32DC4100368E3E /* BackButton.swift */; };
 		F2ACF4582D3311FD00368E3E /* FlagsButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ACF4572D3311FD00368E3E /* FlagsButtons.swift */; };
 		F2ACF45A2D331BD300368E3E /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ACF4592D331BD300368E3E /* NextButton.swift */; };
+		F2ACF45C2D33D89500368E3E /* AddTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ACF45B2D33D89500368E3E /* AddTaskView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		F2ACF4532D32DC4100368E3E /* BackButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackButton.swift; sourceTree = "<group>"; };
 		F2ACF4572D3311FD00368E3E /* FlagsButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlagsButtons.swift; sourceTree = "<group>"; };
 		F2ACF4592D331BD300368E3E /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		F2ACF45B2D33D89500368E3E /* AddTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 			children = (
 				F2ACF43F2D328E9800368E3E /* LanguageView.swift */,
 				F2ACF4512D32D90500368E3E /* SwitchView.swift */,
+				F2ACF45B2D33D89500368E3E /* AddTaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F2ACF45A2D331BD300368E3E /* NextButton.swift in Sources */,
+				F2ACF45C2D33D89500368E3E /* AddTaskView.swift in Sources */,
 				F2ACF4542D32DC4100368E3E /* BackButton.swift in Sources */,
 				F2ACF4402D328E9800368E3E /* LanguageView.swift in Sources */,
 				F2ACF43E2D328E9800368E3E /* DayOnboardingApp.swift in Sources */,

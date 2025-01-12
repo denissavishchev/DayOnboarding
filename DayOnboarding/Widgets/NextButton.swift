@@ -1,8 +1,11 @@
 import SwiftUI
 
-struct NextButton: View {
+struct NextButton<Content: View>: View {
+    
+    var toView: Content
+    
     var body: some View {
-        NavigationLink(destination: SwitchView()) {
+        NavigationLink(destination: toView) {
             ZStack {
                 RoundedRectangle(cornerRadius: 25)
                     .fill(
@@ -12,7 +15,8 @@ struct NextButton: View {
                     .cornerRadius(10)
                 
                 RoundedRectangle(cornerRadius: 25)
-                    .stroke(.darkBlue, lineWidth: 2)
+                    .stroke(.white.opacity(0.4), lineWidth: 1)
+                    
                 
                 RoundedRectangle(cornerRadius: 16)
                     .foregroundStyle(LinearGradient(gradient: Gradient(colors: [.dark, .darkBlue]), startPoint: .top, endPoint: .bottom))
@@ -25,6 +29,7 @@ struct NextButton: View {
                     .font(.system(size: 30))
                     .foregroundStyle(.white.opacity(0.4))
             }
+            .shadow(color: .dark, radius: 10, x: 10, y: 10)
             .frame(width: 220, height: 80)
         }
     }
