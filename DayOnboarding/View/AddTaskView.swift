@@ -9,7 +9,7 @@ struct AddTaskView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationBarHidden(true)
-        .background(LinearGradient(gradient: Gradient(colors: [.dark, .dark]), startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(gradient: Gradient(colors: [.darkBlue, .dark]), startPoint: .top, endPoint: .bottom))
     }
 }
 

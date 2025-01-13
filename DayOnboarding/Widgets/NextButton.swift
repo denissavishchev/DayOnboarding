@@ -3,34 +3,22 @@ import SwiftUI
 struct NextButton<Content: View>: View {
     
     var toView: Content
+    var text: String
     
     var body: some View {
         NavigationLink(destination: toView) {
             ZStack {
-                RoundedRectangle(cornerRadius: 25)
-                    .fill(
-                        .shadow(.inner(color: .darkBlue.opacity(0.5), radius: 10, x: 10, y: 10))
-                    )
-                    .foregroundStyle(LinearGradient(gradient: Gradient(colors: [.dark, .darkBlue]), startPoint: .top, endPoint: .bottom))
-                    .cornerRadius(10)
-                
-                RoundedRectangle(cornerRadius: 25)
-                    .stroke(.white.opacity(0.4), lineWidth: 1)
-                    
-                
-                RoundedRectangle(cornerRadius: 16)
-                    .foregroundStyle(LinearGradient(gradient: Gradient(colors: [.dark, .darkBlue]), startPoint: .top, endPoint: .bottom))
-                    .shadow(color: .dark, radius: 5, x: 5, y: 5)
-                    .shadow(color: .darkBlue, radius: 5, x: -5, y: -5)
-                    .padding(.horizontal, 16)
-                    .padding(.vertical, 10)
-                
-                Text("Next")
+                RoundedRectangle(cornerRadius: 30)
+                    .foregroundStyle(.dark)
+                    .shadow(color: .white, radius: 2, y: -2)
+                    .shadow(color: .darkPurple, radius: 10, y: -7)
+                Text(text)
                     .font(.system(size: 30))
-                    .foregroundStyle(.white.opacity(0.4))
+                    .bold()
+                    .foregroundStyle(.darkPurple.opacity(0.8))
             }
-            .shadow(color: .dark, radius: 10, x: 10, y: 10)
-            .frame(width: 220, height: 80)
+            .frame(maxWidth: .infinity, maxHeight: 60)
+            .padding(.horizontal, 24)
         }
     }
 }

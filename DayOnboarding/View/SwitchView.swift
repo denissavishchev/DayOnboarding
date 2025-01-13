@@ -1,8 +1,8 @@
 import SwiftUI
 
 struct SwitchView: View {
-    
-    @State var isDay: Bool = true
+   
+    @State var isDay: Bool = false
     
     var body: some View {
         VStack {
@@ -35,7 +35,7 @@ struct SwitchView: View {
             }
             Spacer()
             
-            NextButton(toView: AddTaskView())
+            NextButton(toView: AddTaskView(), text: "Next")
         
             Spacer()
         }
