@@ -12,4 +12,12 @@ class ViewModel: ObservableObject{
     @Published var text: String = ""
     @Published var description: String = ""
     @Published var image: String = "Placeholder"
+    @Published var selectedTime = Date()
+    @Published var isNext: Bool = true
+    
+    func formattedTime(_ date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+        return formatter.string(from: date)
+    }
 }

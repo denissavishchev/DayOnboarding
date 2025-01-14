@@ -35,7 +35,8 @@ struct SwitchView: View {
             }
             .padding(.bottom, 24)
             
-            ZStack {
+            vm.isDay 
+            ? AnyView(ZStack {
                 Image("Blank")
                     .resizable()
                     .frame(maxWidth: .infinity, maxHeight: 150)
@@ -76,13 +77,24 @@ struct SwitchView: View {
                         .frame(width: 60, height: 130)
                         .foregroundColor(.kDark.opacity(0.6))
                         .overlay(
-                        Image(systemName: "alarm")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 35)
-                            .foregroundColor(.white.opacity(0.5))
+                            VStack {
+                                Text("\(vm.formattedTime(vm.selectedTime))")
+                                    .font(.system(size: 18))
+                                    .bold()
+                                    .foregroundColor(.white)
+                                Image(systemName: "alarm")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 35)
+                                .foregroundColor(.white.opacity(0.5))
                             .shadow(color: .white.opacity(0.2), radius: 3)
+                            }
                         )
+                        .onTapGesture {
+                            withAnimation{
+                                vm.isNext = false
+                            }
+                        }
                 }
                 .gesture(
                     TapGesture(count: 2)
@@ -97,9 +109,11 @@ struct SwitchView: View {
                 .padding(.horizontal, 12)
             }
             .padding(.horizontal, 18)
-            .padding(.bottom, 20)
+            .padding(.bottom, 20))
+            : AnyView(Spacer())
             
-            HStack(spacing: 20){
+            vm.isDay 
+            ? AnyView(HStack(spacing: 20){
                 ForEach(vm.tasks, id: \.id){task in
                         RoundedRectangle(cornerRadius: 10)
                         .frame(width: 100, height: 80)
@@ -131,13 +145,41 @@ struct SwitchView: View {
                                 }
                         )
                 }
+            })
+            : AnyView(Spacer())
+            
+            Group {
+                if vm.isNext {
+                    AnyView(NextButton(toView: AddTaskView(), text: "Next"))
+                        .padding(.bottom, 90)
+                        .padding(.top, 60)
+                } else {
+                    AnyView(
+                        VStack {
+                            HStack(spacing: 200){
+                                Button("Close") {
+                                    withAnimation{
+                                        vm.isNext = true
+                                        }
+                                    }
+                                Button("OK") {
+                                    withAnimation{
+                                        vm.isNext = true
+                                        }
+                                    }
+                            }
+                            DatePicker("Select Time", selection: $vm.selectedTime, displayedComponents: .hourAndMinute)
+                                .datePickerStyle(.wheel)
+                            .labelsHidden()
+                            .environment(\.locale, Locale(identifier: "en_GB"))
+                            .colorInvert()
+                        }
+                    )
+                    .padding(.top, 20)
+                }
             }
             
-            Spacer()
-            
-            NextButton(toView: AddTaskView(), text: "Next")
-        
-            Spacer()
+
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationBarHidden(true)
