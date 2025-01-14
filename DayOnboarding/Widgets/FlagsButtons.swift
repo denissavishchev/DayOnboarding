@@ -37,7 +37,7 @@ struct Flag: View {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(selectedFlag == flag ? .white : .clear, lineWidth: 5)
             )
-            .shadow(color: selectedFlag == flag ? .dark : .clear, radius: 10, x: 10, y: 10)
+            .shadow(color: selectedFlag == flag ? .kDark : .clear, radius: 10, x: 10, y: 10)
             .onTapGesture {
                 withAnimation{
                     selectedFlag = flag

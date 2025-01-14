@@ -3,6 +3,7 @@ import SwiftUI
 struct SwitchView: View {
    
     @State var isDay: Bool = false
+    @State var text: String = ""
     
     var body: some View {
         VStack {
@@ -25,7 +26,7 @@ struct SwitchView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80)
-                    .shadow(color: .dark.opacity(0.6), radius: 5, x: isDay ? 5 : -5, y: 5)
+                    .shadow(color: .kDark.opacity(0.6), radius: 5, x: isDay ? 5 : -5, y: 5)
                     .padding(.horizontal, 14)
                     .onTapGesture {
                         withAnimation(.linear(duration: 0.4)){
@@ -33,6 +34,102 @@ struct SwitchView: View {
                         }
                     }
             }
+            .padding(.bottom, 24)
+            
+            ZStack {
+                Image("Blank")
+                    .resizable()
+                    .frame(maxWidth: .infinity, maxHeight: 150)
+                    .clipShape(RoundedRectangle(cornerRadius: 20))
+                
+                RoundedRectangle(cornerRadius: 20)
+                .frame(maxWidth: .infinity, maxHeight: 150)
+                .foregroundColor(.kBlue.opacity(0.9))
+                
+                HStack{
+                    Image("Placeholder")
+                        .resizable()
+                        .scaledToFill()
+                        .frame(width: 120, height: 120)
+                        .clipShape(RoundedRectangle(cornerRadius: 6))
+                    
+                    Spacer()
+                    
+                    VStack(alignment: .leading){
+                       Text(text)
+                            .font(.system(size: 20))
+                            .bold()
+                            .foregroundColor(.white)
+                        
+                        Divider()
+                            .frame(width: 130, height: 2)
+                            .background(.white)
+                        
+                        Text("Every day")
+                             .font(.system(size: 16))
+                             .bold()
+                             .foregroundColor(.white.opacity(0.7))
+                             .padding(.bottom, 50)
+                        
+                    }
+                    
+                    RoundedRectangle(cornerRadius: 15)
+                        .frame(width: 60, height: 130)
+                        .foregroundColor(.kDark.opacity(0.6))
+                        .overlay(
+                        Image(systemName: "alarm")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 35)
+                            .foregroundColor(.white.opacity(0.5))
+                            .shadow(color: .white.opacity(0.2), radius: 3)
+                        )
+                }
+                .gesture(
+                    TapGesture(count: 2)
+                        .onEnded{
+                            withAnimation{
+                                text = ""
+                            }
+                        }
+                )
+                .padding(.horizontal, 12)
+            }
+            .padding(.horizontal, 18)
+            .padding(.bottom, 20)
+            
+            HStack(spacing: 20){
+                ForEach(1...3, id: \.self){i in
+                        RoundedRectangle(cornerRadius: 10)
+                        .frame(width: 100, height: 80)
+                        .foregroundColor(.kBlue)
+                        .overlay(
+                            VStack{
+                                Text("Meditation")
+                                     .font(.system(size: 18))
+                                     .bold()
+                                     .foregroundColor(.white)
+                                 Divider()
+                                     .frame(width: 80, height: 2)
+                                     .background(.white)
+                                 
+                                 Text("Morning")
+                                      .font(.system(size: 16))
+                                      .bold()
+                                      .foregroundColor(.white.opacity(0.7))
+                            }
+                        )
+                        .gesture(
+                            TapGesture(count: 2)
+                                .onEnded{
+                                    withAnimation{
+                                        text = "Meditation"
+                                    }
+                                }
+                        )
+                }
+            }
+            
             Spacer()
             
             NextButton(toView: AddTaskView(), text: "Next")
@@ -41,7 +138,7 @@ struct SwitchView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .navigationBarHidden(true)
-        .background(LinearGradient(gradient: Gradient(colors: [.dark, .dark]), startPoint: .top, endPoint: .bottom))
+        .background(LinearGradient(gradient: Gradient(colors: [.kDark, .kDark]), startPoint: .top, endPoint: .bottom))
     }
 }
 

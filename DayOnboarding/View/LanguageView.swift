@@ -15,14 +15,14 @@ struct LanguageView: View {
                         .resizable()
                         .scaledToFit()
                         .frame(width: 180)
-                        .shadow(color: .dark, radius: 10, x: 10, y: 10)
+                        .shadow(color: .kDark, radius: 10, x: 10, y: 10)
                 }
                 Spacer()
                 
                 NextButton(toView: SwitchView(), text: languageText(text: selectedFlag))
                     .padding(.bottom, 100)
             }
-            .background(LinearGradient(gradient: Gradient(colors: [.darkBlue, .dark]), startPoint: .top, endPoint: .bottom))
+            .background(LinearGradient(gradient: Gradient(colors: [.kBlue, .kDark]), startPoint: .top, endPoint: .bottom))
         }
     }
     
@@ -33,7 +33,7 @@ struct LanguageView: View {
         case "PL":
             return "Zaczynamy"
         case "DE":
-            return "Veiter"
+            return "Weiter"
         case "Ru":
             return "Поехали"
         default:
