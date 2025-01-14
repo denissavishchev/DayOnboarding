@@ -1,9 +1,8 @@
 import SwiftUI
 
 struct SwitchView: View {
-   
-    @State var isDay: Bool = false
-    @State var text: String = ""
+    
+    @StateObject var vm = ViewModel()
     
     var body: some View {
         VStack {
@@ -11,8 +10,8 @@ struct SwitchView: View {
             
             Spacer()
             
-            ZStack(alignment: isDay ? .leading : .trailing){
-                Image(isDay ? "Day" : "Night")
+            ZStack(alignment: vm.isDay ? .leading : .trailing){
+                Image(vm.isDay ? "Day" : "Night")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300)
@@ -22,15 +21,15 @@ struct SwitchView: View {
                     .stroke(.white, lineWidth: 1)
                     .frame(width: 300, height: 100)
                 
-                Image(isDay ? "Sun" : "Moon")
+                Image(vm.isDay ? "Sun" : "Moon")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 80)
-                    .shadow(color: .kDark.opacity(0.6), radius: 5, x: isDay ? 5 : -5, y: 5)
+                    .shadow(color: .kDark.opacity(0.6), radius: 5, x: vm.isDay ? 5 : -5, y: 5)
                     .padding(.horizontal, 14)
                     .onTapGesture {
                         withAnimation(.linear(duration: 0.4)){
-                            isDay.toggle()
+                            vm.isDay.toggle()
                         }
                     }
             }
@@ -47,7 +46,7 @@ struct SwitchView: View {
                 .foregroundColor(.kBlue.opacity(0.9))
                 
                 HStack{
-                    Image("Placeholder")
+                    Image(vm.image)
                         .resizable()
                         .scaledToFill()
                         .frame(width: 120, height: 120)
@@ -56,16 +55,16 @@ struct SwitchView: View {
                     Spacer()
                     
                     VStack(alignment: .leading){
-                       Text(text)
+                        Text(vm.text)
                             .font(.system(size: 20))
                             .bold()
                             .foregroundColor(.white)
                         
-                        Divider()
+                        vm.text == "" ? nil : Divider()
                             .frame(width: 130, height: 2)
                             .background(.white)
                         
-                        Text("Every day")
+                        Text(vm.description)
                              .font(.system(size: 16))
                              .bold()
                              .foregroundColor(.white.opacity(0.7))
@@ -89,7 +88,9 @@ struct SwitchView: View {
                     TapGesture(count: 2)
                         .onEnded{
                             withAnimation{
-                                text = ""
+                                vm.text = ""
+                                vm.description = ""
+                                vm.image = "Placeholder"
                             }
                         }
                 )
@@ -99,13 +100,13 @@ struct SwitchView: View {
             .padding(.bottom, 20)
             
             HStack(spacing: 20){
-                ForEach(1...3, id: \.self){i in
+                ForEach(vm.tasks, id: \.id){task in
                         RoundedRectangle(cornerRadius: 10)
                         .frame(width: 100, height: 80)
                         .foregroundColor(.kBlue)
                         .overlay(
                             VStack{
-                                Text("Meditation")
+                                Text(task.name)
                                      .font(.system(size: 18))
                                      .bold()
                                      .foregroundColor(.white)
@@ -113,7 +114,7 @@ struct SwitchView: View {
                                      .frame(width: 80, height: 2)
                                      .background(.white)
                                  
-                                 Text("Morning")
+                                Text(task.description)
                                       .font(.system(size: 16))
                                       .bold()
                                       .foregroundColor(.white.opacity(0.7))
@@ -123,7 +124,9 @@ struct SwitchView: View {
                             TapGesture(count: 2)
                                 .onEnded{
                                     withAnimation{
-                                        text = "Meditation"
+                                        vm.text = task.name
+                                        vm.description = task.description
+                                        vm.image = task.image
                                     }
                                 }
                         )
