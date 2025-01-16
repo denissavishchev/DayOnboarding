@@ -20,4 +20,13 @@ class ViewModel: ObservableObject{
         formatter.dateFormat = "HH:mm"
         return formatter.string(from: date)
     }
+    
+    @Published var randomList: [Int] = []
+    
+    func generateRandomList(size: Int) {
+        let halfSize = size / Int.random(in: 1...5)
+            let randomPart = (0..<halfSize).map { _ in Int.random(in: 1...2) }
+            let zerosPart = Array(repeating: 0, count: size - halfSize)
+            randomList = randomPart + zerosPart
+        }
 }

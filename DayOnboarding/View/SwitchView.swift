@@ -150,7 +150,7 @@ struct SwitchView: View {
             
             Group {
                 if vm.isNext {
-                    AnyView(NextButton(toView: AddTaskView(), text: "Next"))
+                    AnyView(NextButton(toView: HistoryView(), text: "Next"))
                         .padding(.bottom, 90)
                         .padding(.top, 60)
                 } else {
