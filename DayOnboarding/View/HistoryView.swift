@@ -5,6 +5,8 @@ struct HistoryView: View {
     
     @StateObject var vm = ViewModel()
     let columns = Array(repeating: GridItem(.flexible()), count: 15)
+    @State var isDone: Bool = false
+    let size: Int = 120
     
     var body: some View {
         VStack{
@@ -25,14 +27,72 @@ struct HistoryView: View {
                             )
                     }
                 }
-                .padding(.leading, 24)
-                .padding(.trailing, 12)
+                .padding(.leading, 12)
+                .padding(.trailing, 8)
                 
                 VStack{
-                    
+                    ZStack(alignment: isDone ? .trailing : .leading){
+                        RoundedRectangle(cornerRadius: 20)
+                            .fill(
+                                .shadow(.inner(color: .kBlue, radius: 7))
+                            )
+                            .foregroundColor(.white)
+                            .frame(width: 90, height: 40)
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(.black, lineWidth: 2)
+                            .frame(width: 90, height: 40)
+                        
+                        RoundedRectangle(cornerRadius: 20)
+                            .frame(width: 55, height: 36)
+                            .foregroundStyle(LinearGradient(gradient: Gradient(colors: [.kBlue, .white]), startPoint: .topLeading, endPoint: .bottomTrailing))
+                            .overlay(
+                                Circle()
+                                    .frame(width: 20, height: 20)
+                                    .foregroundColor(.kBlue)
+                            )
+                            .padding(.horizontal, 4)
+                        RoundedRectangle(cornerRadius: 20)
+                            .stroke(.black, lineWidth: 1.5)
+                            .frame(width: 54, height: 33)
+                            .padding(.horizontal, 4)
+                    }
+                    .onTapGesture {
+                        withAnimation{
+                            isDone.toggle()
+                        }
+                    }
+                        
+                    HStack(spacing: 0){
+                        RoundedRectangle(cornerRadius: 2)
+                           .frame(width: 12, height: 12)
+                           .foregroundColor(.green)
+                           .overlay(
+                               RoundedRectangle(cornerRadius: 2)
+                                   .stroke(.kDark, lineWidth: 1)
+                           )
+                        Text("  \(vm.randomList.filter { $0 == 2 }.count) / ")
+                            .font(.system(size: 14))
+                            .foregroundColor(.white)
+                            .bold()
+                        RoundedRectangle(cornerRadius: 2)
+                           .frame(width: 12, height: 12)
+                           .foregroundColor(.kBlue)
+                           .overlay(
+                               RoundedRectangle(cornerRadius: 2)
+                                   .stroke(.kDark, lineWidth: 1)
+                           )
+                        Text("  \(vm.randomList.filter { $0 == 1 }.count)")
+                            .font(.system(size: 14))
+                            .foregroundColor(.white)
+                        .bold()
+                    }
+                    Text("\((vm.randomList.filter { $0 == 2 }.count) + (vm.randomList.filter { $0 == 1 }.count)) / \(size) days")
+                        .font(.system(size: 14))
+                        .foregroundColor(.white)
+                        .bold()
                 }
-                .frame(width: 100, height: 80)
-                .background()
+                .padding(.trailing, 12)
             }
             
             Spacer()
@@ -41,7 +101,7 @@ struct HistoryView: View {
         .navigationBarHidden(true)
         .background(LinearGradient(gradient: Gradient(colors: [.kBlue, .kDark]), startPoint: .top, endPoint: .bottom))
         .onAppear {
-            vm.generateRandomList(size: 60)
+            vm.generateRandomList(size: size)
         }
     }
 }
