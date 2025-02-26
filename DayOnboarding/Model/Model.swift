@@ -6,3 +6,10 @@ struct Model: Identifiable{
     var description: String
     var image: String
 }
+
+struct TopList: Identifiable{
+    var id = UUID().uuidString
+    var name: String
+    var amount: Int
+    var total: Int
+}

@@ -8,12 +8,20 @@ class ViewModel: ObservableObject{
         Model(name: "Sport", description: "Running", image: "Ball"),
     ]
     
+    @Published var topItems: [TopList] = []
+    
+    func addToTopItems(name: String, amount: Int, total: Int) {
+            let newItem = TopList(name: name, amount: amount, total: total)
+            topItems.append(newItem)
+        }
+    
     @Published var isDay: Bool = false
     @Published var text: String = ""
     @Published var description: String = ""
     @Published var image: String = "Placeholder"
     @Published var selectedTime = Date()
     @Published var isNext: Bool = true
+    @Published var showPopup: Bool = false
     
     func formattedTime(_ date: Date) -> String {
         let formatter = DateFormatter()
