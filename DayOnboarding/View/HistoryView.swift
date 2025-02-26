@@ -14,18 +14,62 @@ struct HistoryView: View {
             BackButton()
             
             Spacer()
+            HStack {
+                ZStack{
+                    Circle()
+                        .fill(
+                            .shadow(.inner(color: .black.opacity(0.8), radius: 5, y: 5))
+                        )
+                        .foregroundColor(.white)
+                    Circle()
+                        .foregroundColor(.green)
+                        .frame(width: 8, height: 8)
+                }
+                .frame(width: 10, height: 10)
+                
+                ZStack{
+                    Circle()
+                        .fill(
+                            .shadow(.inner(color: .black.opacity(0.8), radius: 5, y: 5))
+                        )
+                        .foregroundColor(.white)
+                    Circle()
+                        .stroke(.green, lineWidth: 1)
+                        .frame(width: 8, height: 8)
+                }
+                .frame(width: 10, height: 10)
+            }
+            
+            Spacer()
             
             HStack {
                 LazyVGrid(columns: columns, spacing: 4){
                     ForEach(Array(vm.randomList.enumerated()), id: \.offset){_, item in
-                         RoundedRectangle(cornerRadius: 2)
-                            .frame(width: 12, height: 12)
-                            .foregroundColor(item == 0 ? .kDark.opacity(0.1) : (item == 1 ? .kBlue : .green))
-                            .overlay(
+                        if item == 0{
+                            ZStack{
                                 RoundedRectangle(cornerRadius: 2)
-                                    .stroke(.kDark, lineWidth: 1)
-                            )
+                                    .foregroundColor(.kBlue)
+                                    .overlay(
+                                        RoundedRectangle(cornerRadius: 2)
+                                            .stroke(.kDark, lineWidth: 1)
+                                    )
+                            }
+                            .frame(width: 12, height: 12)
+                        }else if item == 1{
+                            ZStack{
+                                RoundedRectangle(cornerRadius: 2)
+                                    .foregroundColor(.kDark)
+                                RoundedRectangle(cornerRadius: 2)
+                                    .stroke(.pink, lineWidth: 1)
+                            }
+                            .frame(width: 12, height: 12)
+                        }else if item == 2{
+                                RoundedRectangle(cornerRadius: 2)
+                                    .foregroundColor(.green)
+                                    .frame(width: 12, height: 12)
+                        }
                     }
+                    
                 }
                 .padding(.leading, 12)
                 .padding(.trailing, 8)
@@ -93,6 +137,24 @@ struct HistoryView: View {
                         .bold()
                 }
                 .padding(.trailing, 12)
+            }
+            Spacer()
+            HStack{
+                LazyVGrid(columns: columns, spacing: 4){
+                    ForEach(Array(vm.randomList.enumerated()), id: \.offset){_, item in
+                         RoundedRectangle(cornerRadius: 2)
+                            .frame(width: 12, height: 12)
+                            .foregroundColor(item == 0 ? .kDark.opacity(0.1) : (item == 1 ? .kBlue : .green))
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 2)
+                                    .stroke(.kDark, lineWidth: 1)
+                            )
+                    }
+                }
+                .padding(.leading, 12)
+                .padding(.trailing, 8)
+                Spacer()
+                    .frame(maxWidth: .infinity)
             }
             
             Spacer()
