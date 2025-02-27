@@ -31,6 +31,8 @@ class ViewModel: ObservableObject{
     
     @Published var randomList: [Int] = []
     
+    let randomNumber = Int.random(in: 1...12) * 15
+    
     func generateRandomList(size: Int) {
         let halfSize = size / Int.random(in: 1...5)
             let randomPart = (0..<halfSize).map { _ in Int.random(in: 1...2) }

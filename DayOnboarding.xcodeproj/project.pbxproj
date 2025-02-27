@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F21447C52D6F88060027B57B /* ComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447C42D6F88060027B57B /* ComponentsView.swift */; };
 		F21447C72D6FB4CD0027B57B /* AddPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447C62D6FB4CD0027B57B /* AddPopUp.swift */; };
+		F21447C92D70E39F0027B57B /* SingleTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447C82D70E39F0027B57B /* SingleTaskView.swift */; };
 		F2ACF43E2D328E9800368E3E /* DayOnboardingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ACF43D2D328E9700368E3E /* DayOnboardingApp.swift */; };
 		F2ACF4402D328E9800368E3E /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ACF43F2D328E9800368E3E /* LanguageView.swift */; };
 		F2ACF4422D328E9A00368E3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2ACF4412D328E9A00368E3E /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		F21447C42D6F88060027B57B /* ComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsView.swift; sourceTree = "<group>"; };
 		F21447C62D6FB4CD0027B57B /* AddPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPopUp.swift; sourceTree = "<group>"; };
+		F21447C82D70E39F0027B57B /* SingleTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTaskView.swift; sourceTree = "<group>"; };
 		F2ACF43A2D328E9700368E3E /* DayOnboarding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayOnboarding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2ACF43D2D328E9700368E3E /* DayOnboardingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOnboardingApp.swift; sourceTree = "<group>"; };
 		F2ACF43F2D328E9800368E3E /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				F2ACF45B2D33D89500368E3E /* HistoryView.swift */,
 				F21447C42D6F88060027B57B /* ComponentsView.swift */,
 				F21447C62D6FB4CD0027B57B /* AddPopUp.swift */,
+				F21447C82D70E39F0027B57B /* SingleTaskView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -192,6 +195,7 @@
 				F21447C52D6F88060027B57B /* ComponentsView.swift in Sources */,
 				F21447C72D6FB4CD0027B57B /* AddPopUp.swift in Sources */,
 				F2ACF45A2D331BD300368E3E /* NextButton.swift in Sources */,
+				F21447C92D70E39F0027B57B /* SingleTaskView.swift in Sources */,
 				F2ACF4612D369A7F00368E3E /* ViewModel.swift in Sources */,
 				F2ACF45C2D33D89500368E3E /* HistoryView.swift in Sources */,
 				F2ACF4542D32DC4100368E3E /* BackButton.swift in Sources */,
