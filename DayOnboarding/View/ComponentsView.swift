@@ -2,8 +2,6 @@ import SwiftUI
 
 struct ComponentsView: View {
     
-    @StateObject var vm = ViewModel()
-    
     var body: some View {
         VStack {
             SingleTaskView()
@@ -13,85 +11,73 @@ struct ComponentsView: View {
             
             HabitView()
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(.kDark)
         
     }
         
 }
-
-
 
 #Preview {
     ComponentsView()
 }
 
 
-
-
 struct HabitView: View {
     
-    @State var isDoneList: [Bool] = [false, false, false, false, false]
     @StateObject var vm = ViewModel()
+    @State var isDoneList: [Bool] = [false, false, false, false, false]
+    let colors: [Color] = [.kGreen, .kRed, .kIndigo, .kYellow, .kRed]
+    let texts: [String] = [
+        "Drink a cup of tea",
+        "Read a book",
+        "Programming",
+        "Gym",
+        "Walking with kids"]
+    
     
     var body: some View {
-        HStack(spacing: 0){
-            ZStack{
-                Button{
-                    withAnimation {
-                    
-                    }
-                }label: {
-                    Image(systemName: "plus.app.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 40)
-                        .foregroundColor(.kGray)
-                }
-            }
-            .frame(width: 60, height: 350)
-            .background(.kBlue)
-            
-            ZStack{
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 8) {
+                ScrollView(.vertical, showsIndicators: false) {
+                    VStack(spacing: 8) {
                         ForEach(isDoneList.indices, id: \.self) { index in
                             ZStack {
                                 RoundedRectangle(cornerRadius: 8)
-                                    .fill(.white.opacity(0.4))
-                                    .frame(width: 240, height: 340)
+                                    .fill(.kBlue.opacity(0.5))
+                                    .padding(.horizontal, 18)
+                                    .frame(width: UIScreen.main.bounds.width, height: 250)
+                                    
                                 VStack {
-                                    GridView()
-                                        .frame(width: 240)
                                     
-                                    Spacer()
-                                    
-                                    HabitInfoButton()
-                                    
-                                    Spacer()
-                                        .frame(height: 20)
-                                    
-                                    HStack {
-                                        HabitInfoView()
-                                        
+                                    HStack(alignment: .top){
+                                        HabitInfoButton()
+                                        Text(texts[index])
+                                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                                            .foregroundColor(.kGrayLight)
                                         Spacer()
-                                        
-                                        HabitSwitch(isDone: $isDoneList[index])
                                     }
                                     .padding(.horizontal, 12)
                                     
+                                    HStack(alignment: .top){
+                                        GridView(color: colors[index])
+                                            .frame(width: 240)
+                                        
+                                        VStack {
+                                            HabitSwitch(isDone: $isDoneList[index], color: colors[index])
+                                            HabitInfoView(color: colors[index])
+                                        }
+                                    }
+                                    
                                     Spacer()
-                                        .frame(height: 20)
                                 }
                                 .padding(.top, 12)
+                                .padding(.horizontal, 18)
                             }
                         }
                     }
-                    .padding()
                 }
-            }
-            .frame(maxWidth: UIScreen.main.bounds.width)
-            .frame(height: 350)
-            .background(.kGrayDark)
-        }
+                    .frame(maxWidth: UIScreen.main.bounds.width)
+                    .frame(height: 600)
+                    .background(.kDark)
     }
 }
 
@@ -99,6 +85,7 @@ struct GridView: View {
     
     @StateObject var vm = ViewModel()
     let columns = Array(repeating: GridItem(.flexible(), spacing: 5), count: 15)
+    let color: Color
     
     var body: some View {
         LazyVGrid(columns: columns, alignment: .center, spacing: 3){
@@ -106,7 +93,7 @@ struct GridView: View {
                 if item == 0{
                     ZStack{
                         RoundedRectangle(cornerRadius: 2)
-                            .foregroundColor(.kBlue.opacity(0.1))
+                            .foregroundColor(.kBlue.opacity(0.5))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 2)
                                     .stroke(.kDark.opacity(0.1), lineWidth: 1)
@@ -116,14 +103,14 @@ struct GridView: View {
                 }else if item == 1{
                     ZStack{
                         RoundedRectangle(cornerRadius: 2)
-                            .foregroundColor(.kBlue.opacity(0.4))
+                            .foregroundColor(.kDark.opacity(0.5))
                         RoundedRectangle(cornerRadius: 2)
                             .stroke(.kDark.opacity(0.1), lineWidth: 1)
                     }
                     .frame(width: 12, height: 12)
                 }else if item == 2{
                     RoundedRectangle(cornerRadius: 2)
-                        .foregroundColor(.kGreen)
+                        .foregroundColor(color)
                         .frame(width: 12, height: 12)
                 }
             }
@@ -140,6 +127,7 @@ struct GridView: View {
 struct HabitSwitch: View {
     
     @Binding var isDone: Bool
+    let color: Color
     
     var body: some View {
         ZStack(alignment: isDone ? .trailing : .leading){
@@ -160,7 +148,7 @@ struct HabitSwitch: View {
                 .overlay(
                     Circle()
                         .frame(width: 20, height: 20)
-                        .foregroundColor(.kBlue)
+                        .foregroundColor(isDone ? color : .kBlue)
                 )
                 .padding(.horizontal, 4)
             RoundedRectangle(cornerRadius: 20)
@@ -177,12 +165,15 @@ struct HabitSwitch: View {
 }
 
 struct HabitInfoView: View {
+    
+    let color: Color
+    
     var body: some View {
         VStack(alignment: .leading){
             HStack{
                 RoundedRectangle(cornerRadius: 2)
                     .frame(width: 12, height: 12)
-                    .foregroundColor(.green)
+                    .foregroundColor(color)
                     .overlay(
                         RoundedRectangle(cornerRadius: 2)
                             .stroke(.kDark, lineWidth: 1)
@@ -197,11 +188,8 @@ struct HabitInfoView: View {
             HStack{
                 RoundedRectangle(cornerRadius: 2)
                     .frame(width: 12, height: 12)
-                    .foregroundColor(.kBlue)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 2)
-                            .stroke(.kDark, lineWidth: 1)
-                    )
+                    .foregroundColor(.kDark)
+                    
                 Text("120")
                     .font(.system(size: 14))
                     .foregroundColor(.white)
@@ -228,11 +216,11 @@ struct HabitInfoButton: View {
                 Image(systemName: "note.text")
                     .resizable()
                     .scaledToFit()
-                    .frame(width: 40)
+                    .frame(width: 20)
                     .foregroundColor(.kGray)
             }
         }
-        .frame(width: 60, height: 60)
+        .frame(width: 40, height: 40)
         .background(.kBlue)
         .clipShape(RoundedRectangle(cornerRadius: 12))
     }
