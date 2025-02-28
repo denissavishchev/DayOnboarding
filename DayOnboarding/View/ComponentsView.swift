@@ -106,24 +106,24 @@ struct GridView: View {
                 if item == 0{
                     ZStack{
                         RoundedRectangle(cornerRadius: 2)
-                            .foregroundColor(.kBlue)
+                            .foregroundColor(.kBlue.opacity(0.1))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 2)
-                                    .stroke(.kDark, lineWidth: 1)
+                                    .stroke(.kDark.opacity(0.1), lineWidth: 1)
                             )
                     }
                     .frame(width: 12, height: 12)
                 }else if item == 1{
                     ZStack{
                         RoundedRectangle(cornerRadius: 2)
-                            .foregroundColor(.kDark)
+                            .foregroundColor(.kBlue.opacity(0.4))
                         RoundedRectangle(cornerRadius: 2)
-                            .stroke(.pink, lineWidth: 1)
+                            .stroke(.kDark.opacity(0.1), lineWidth: 1)
                     }
                     .frame(width: 12, height: 12)
                 }else if item == 2{
                     RoundedRectangle(cornerRadius: 2)
-                        .foregroundColor(.green)
+                        .foregroundColor(.kGreen)
                         .frame(width: 12, height: 12)
                 }
             }
@@ -187,10 +187,12 @@ struct HabitInfoView: View {
                         RoundedRectangle(cornerRadius: 2)
                             .stroke(.kDark, lineWidth: 1)
                     )
+                
                 Text("15")
                     .font(.system(size: 14))
                     .foregroundColor(.white)
                     .bold()
+                    .shadow(color: .black.opacity(0.5), radius: 1)
             }
             HStack{
                 RoundedRectangle(cornerRadius: 2)
@@ -204,11 +206,13 @@ struct HabitInfoView: View {
                     .font(.system(size: 14))
                     .foregroundColor(.white)
                     .bold()
+                    .shadow(color: .black.opacity(0.5), radius: 1)
             }
             Text("135/180 days")
                 .font(.system(size: 14))
                 .foregroundColor(.white)
                 .bold()
+                .shadow(color: .black.opacity(0.5), radius: 1)
         }
     }
 }
