@@ -29,6 +29,6 @@ struct DaySwitch: View {
                     }
                 }
         }
-        .padding(.bottom, 24)
+        .padding(.bottom, 4)
     }
 }
