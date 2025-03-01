@@ -10,6 +10,11 @@
 		F21447C52D6F88060027B57B /* ComponentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447C42D6F88060027B57B /* ComponentsView.swift */; };
 		F21447C72D6FB4CD0027B57B /* AddPopUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447C62D6FB4CD0027B57B /* AddPopUp.swift */; };
 		F21447C92D70E39F0027B57B /* SingleTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447C82D70E39F0027B57B /* SingleTaskView.swift */; };
+		F21447CB2D72F46F0027B57B /* GridWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447CA2D72F46E0027B57B /* GridWidget.swift */; };
+		F21447CD2D72F4900027B57B /* HabitSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447CC2D72F4900027B57B /* HabitSwitch.swift */; };
+		F21447CF2D72F4C50027B57B /* HabitInfoWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447CE2D72F4C50027B57B /* HabitInfoWidget.swift */; };
+		F21447D12D72F4EF0027B57B /* HabitInfoButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447D02D72F4EF0027B57B /* HabitInfoButton.swift */; };
+		F21447D32D72F50F0027B57B /* DaySwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447D22D72F50F0027B57B /* DaySwitch.swift */; };
 		F2ACF43E2D328E9800368E3E /* DayOnboardingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ACF43D2D328E9700368E3E /* DayOnboardingApp.swift */; };
 		F2ACF4402D328E9800368E3E /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ACF43F2D328E9800368E3E /* LanguageView.swift */; };
 		F2ACF4422D328E9A00368E3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2ACF4412D328E9A00368E3E /* Assets.xcassets */; };
@@ -27,6 +32,11 @@
 		F21447C42D6F88060027B57B /* ComponentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponentsView.swift; sourceTree = "<group>"; };
 		F21447C62D6FB4CD0027B57B /* AddPopUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPopUp.swift; sourceTree = "<group>"; };
 		F21447C82D70E39F0027B57B /* SingleTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTaskView.swift; sourceTree = "<group>"; };
+		F21447CA2D72F46E0027B57B /* GridWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridWidget.swift; sourceTree = "<group>"; };
+		F21447CC2D72F4900027B57B /* HabitSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitSwitch.swift; sourceTree = "<group>"; };
+		F21447CE2D72F4C50027B57B /* HabitInfoWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoWidget.swift; sourceTree = "<group>"; };
+		F21447D02D72F4EF0027B57B /* HabitInfoButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitInfoButton.swift; sourceTree = "<group>"; };
+		F21447D22D72F50F0027B57B /* DaySwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySwitch.swift; sourceTree = "<group>"; };
 		F2ACF43A2D328E9700368E3E /* DayOnboarding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayOnboarding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2ACF43D2D328E9700368E3E /* DayOnboardingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOnboardingApp.swift; sourceTree = "<group>"; };
 		F2ACF43F2D328E9800368E3E /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
@@ -108,6 +118,11 @@
 				F2ACF4532D32DC4100368E3E /* BackButton.swift */,
 				F2ACF4572D3311FD00368E3E /* FlagsButtons.swift */,
 				F2ACF4592D331BD300368E3E /* NextButton.swift */,
+				F21447CA2D72F46E0027B57B /* GridWidget.swift */,
+				F21447CC2D72F4900027B57B /* HabitSwitch.swift */,
+				F21447CE2D72F4C50027B57B /* HabitInfoWidget.swift */,
+				F21447D02D72F4EF0027B57B /* HabitInfoButton.swift */,
+				F21447D22D72F50F0027B57B /* DaySwitch.swift */,
 			);
 			path = Widgets;
 			sourceTree = "<group>";
@@ -192,8 +207,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F21447D12D72F4EF0027B57B /* HabitInfoButton.swift in Sources */,
+				F21447CD2D72F4900027B57B /* HabitSwitch.swift in Sources */,
 				F21447C52D6F88060027B57B /* ComponentsView.swift in Sources */,
 				F21447C72D6FB4CD0027B57B /* AddPopUp.swift in Sources */,
+				F21447CB2D72F46F0027B57B /* GridWidget.swift in Sources */,
 				F2ACF45A2D331BD300368E3E /* NextButton.swift in Sources */,
 				F21447C92D70E39F0027B57B /* SingleTaskView.swift in Sources */,
 				F2ACF4612D369A7F00368E3E /* ViewModel.swift in Sources */,
@@ -201,9 +219,11 @@
 				F2ACF4542D32DC4100368E3E /* BackButton.swift in Sources */,
 				F2ACF4402D328E9800368E3E /* LanguageView.swift in Sources */,
 				F2ACF43E2D328E9800368E3E /* DayOnboardingApp.swift in Sources */,
+				F21447CF2D72F4C50027B57B /* HabitInfoWidget.swift in Sources */,
 				F2ACF4522D32D90500368E3E /* SwitchView.swift in Sources */,
 				F2ACF4582D3311FD00368E3E /* FlagsButtons.swift in Sources */,
 				F2ACF45F2D369A0500368E3E /* Model.swift in Sources */,
+				F21447D32D72F50F0027B57B /* DaySwitch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
