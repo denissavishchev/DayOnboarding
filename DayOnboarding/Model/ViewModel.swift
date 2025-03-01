@@ -8,11 +8,11 @@ class ViewModel: ObservableObject{
         Model(name: "Sport", description: "Running", image: "Ball"),
     ]
     
-    @Published var topItems: [TopList] = []
     
-    func addToTopItems(name: String, amount: Int, total: Int) {
-            let newItem = TopList(name: name, amount: amount, total: total)
-            topItems.append(newItem)
+    
+    func addToCalendar(date: Date, name: String, info: String) {
+        let newItem = CalendarList(date: date, name: name, info: info)
+            calendarList.append(newItem)
         }
     
     @Published var isDay: Bool = false
@@ -22,6 +22,8 @@ class ViewModel: ObservableObject{
     @Published var selectedTime = Date()
     @Published var isNext: Bool = true
     @Published var showPopup: Bool = false
+    @Published var isTodaysPlansOpen: Bool = false
+    @Published var calendarList: [CalendarList] = []
     
     func formattedTime(_ date: Date) -> String {
         let formatter = DateFormatter()

@@ -24,7 +24,7 @@ struct AddPopUp: View {
         
                 Button("Add") {
                     withAnimation {
-                        vm.addToTopItems(name: name, amount: 0, total: total)
+//                        vm.addToTopItems(name: name, amount: 0, total: total)
                         name = ""
                         vm.showPopup.toggle()
                     }

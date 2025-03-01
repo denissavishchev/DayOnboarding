@@ -7,9 +7,9 @@ struct Model: Identifiable{
     var image: String
 }
 
-struct TopList: Identifiable{
+struct CalendarList: Identifiable{
     var id = UUID().uuidString
+    var date: Date
     var name: String
-    var amount: Int
-    var total: Int
+    var info: String
 }
