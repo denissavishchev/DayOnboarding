@@ -10,10 +10,17 @@ class ViewModel: ObservableObject{
     
     
     
-    func addToCalendar(date: Date, name: String, info: String) {
+    func addToCalendar() {
         let newItem = CalendarList(date: date, name: name, info: info)
             calendarList.append(newItem)
+        name = ""
+        info = ""
+        date = Date()
         }
+    
+    @Published var name: String = ""
+    @Published var info: String = ""
+    @Published var date: Date = Date()
     
     @Published var isDay: Bool = false
     @Published var text: String = ""
@@ -27,7 +34,7 @@ class ViewModel: ObservableObject{
     
     func formattedTime(_ date: Date) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
+        formatter.dateFormat = "dd-MM-yyyy"
         return formatter.string(from: date)
     }
     
