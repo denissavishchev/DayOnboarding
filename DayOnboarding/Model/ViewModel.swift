@@ -22,14 +22,23 @@ class ViewModel: ObservableObject{
     @Published var info: String = ""
     @Published var date: Date = Date()
     
+    @Published var taskName: String = ""
+    @Published var taskInfo: String = ""
+    @Published var taskColor: Color = .kGreen
+    @Published var taskIcon: String = "note.text"
+    @Published var taskDays: Double = 30
+    
+    @Published var isNext: Bool = true
+    @Published var showPopup: Bool = false
+    @Published var isTodaysPlansOpen: Bool = false
     @Published var isDay: Bool = false
+    @Published var isAddViewOpen: Bool = false
+    
     @Published var text: String = ""
     @Published var description: String = ""
     @Published var image: String = "Placeholder"
     @Published var selectedTime = Date()
-    @Published var isNext: Bool = true
-    @Published var showPopup: Bool = false
-    @Published var isTodaysPlansOpen: Bool = false
+    
     @Published var calendarList: [CalendarList] = []
     
     func formattedTime(_ date: Date) -> String {

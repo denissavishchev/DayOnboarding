@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ComponentsView: View {
-    
+   
     var body: some View {
         VStack {
             DaySwitch()
@@ -9,18 +9,13 @@ struct ComponentsView: View {
             TodaysPlansView()
             
             HabitView()
-                .padding(.bottom, 12)
             
-            HStack{
-                ZStack{
-                    
-                }
-                .frame(width: 80, height: 60)
-                .background(.kRed)
+            HStack {
+                AddTaskView()
             }
-            .ignoresSafeArea()
-            .frame(width: UIScreen.main.bounds.width, height: 40)
-            .background(.white)
+            .frame(maxWidth: .infinity)
+            .background(.kDark)
+
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.kDark)
@@ -32,3 +27,4 @@ struct ComponentsView: View {
 #Preview {
     ComponentsView()
 }
+
