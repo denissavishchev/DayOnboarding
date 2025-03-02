@@ -21,7 +21,7 @@ struct HabitView: View {
                                 RoundedRectangle(cornerRadius: 8)
                                     .fill(.kBlue.opacity(0.5))
                                     .padding(.horizontal, 18)
-                                    .frame(width: UIScreen.main.bounds.width, height: 250)
+                                    .frame(width: UIScreen.main.bounds.width)
                                     
                                 VStack {
                                     
