@@ -19,7 +19,7 @@ struct LanguageView: View {
                 }
                 Spacer()
                 
-                NextButton(toView: SwitchView(), text: languageText(text: selectedFlag))
+                NextButton(toView: ComponentsView(), text: languageText(text: selectedFlag))
                     .padding(.bottom, 100)
             }
             .background(LinearGradient(gradient: Gradient(colors: [.kBlue, .kDark]), startPoint: .top, endPoint: .bottom))
