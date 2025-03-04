@@ -13,7 +13,7 @@ struct ComponentsView: View {
                 
                     HStack(alignment: .bottom, spacing: 20){
                         NavigationButton(text: "One", destination: AnyView(RecomendationsView()))
-                        NavigationButton(text: "Two", destination: AnyView(RecomendationsView()))
+                        NavigationButton(text: "Calendar", destination: AnyView(CalendarView()))
                         AddTaskView()
                         NavigationButton(text: "Recomendations", destination: AnyView(RecomendationsView()))
                         NavigationButton(text: "Four", destination: AnyView(RecomendationsView()))
