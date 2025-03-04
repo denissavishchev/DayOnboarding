@@ -17,11 +17,38 @@ struct RecomendationsView: View {
                                 .foregroundColor(.kGrayLight)
                             if selectedIndex == index{
                                 RoundedRectangle(cornerRadius: 2)
-                                    .foregroundColor(.white)
+                                    .foregroundColor(.kGrayLight)
                                     .frame(width: 100, height: 2)
                                 Text(rec.info)
                                     .font(.system(size: 14, weight: .bold, design: .rounded))
                                     .foregroundColor(.kGrayLight)
+                                HStack {
+                                    Slider(
+                                        value: $vm.taskDays,
+                                        in: 15...180,
+                                        step: 15
+                                    )
+                                    .tint(.kDark)
+                                    .padding()
+                                    Text("Days: \(Int(vm.taskDays))")
+                                        .font(.headline)
+                                        .foregroundColor(.kGrayLight)
+                                        .shadow(color: .kGrayLight.opacity(0.6), radius: 5)
+                                }
+                                
+                                Button{
+                                    vm.isAddViewOpen = false
+                                }label: {
+                                    RoundedRectangle(cornerRadius: 12)
+                                        .frame(width: 100, height: 40)
+                                        .foregroundColor(.kBlue)
+                                        .shadow(color: .white.opacity(0.4), radius: 2, y: 2)
+                                        .overlay{
+                                            Image(systemName: "rectangle.stack.fill.badge.plus")
+                                                .foregroundColor(.kDark)
+                                                .shadow(color: .white.opacity(0.4), radius: 5)
+                                        }
+                                }
                             }
                         }
                         .padding(18)
