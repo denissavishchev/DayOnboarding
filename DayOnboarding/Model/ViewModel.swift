@@ -4,6 +4,7 @@ class ViewModel: ObservableObject{
     
     @Published var name: String = ""
     @Published var info: String = ""
+    @Published var icon: String = ""
     @Published var date: Date = Date()
     
     @Published var taskName: String = ""
@@ -27,16 +28,16 @@ class ViewModel: ObservableObject{
     @Published var calendarList: [CalendarList] = []
     
     func addToCalendar() {
-        let newItem = CalendarList(date: date, name: name, info: info)
+        let newItem = CalendarList(date: date, name: name, icon: icon)
             calendarList.append(newItem)
-        name = ""
         info = ""
         date = Date()
+        icon = ""
         }
     
-    func formattedTime(_ date: Date) -> String {
+    func formattedTime(_ date: Date, format: String) -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy"
+        formatter.dateFormat = format
         return formatter.string(from: date)
     }
     
@@ -50,6 +51,12 @@ class ViewModel: ObservableObject{
             let zerosPart = Array(repeating: 0, count: size - halfSize)
             randomList = randomPart + zerosPart
         }
+    
+    @Published var events = [
+        CalendarList(date: Calendar.current.date(byAdding: .day, value: +1, to: Date.now)!, name: "Meditation", icon: "star.square.fill"),
+        CalendarList(date: Calendar.current.date(byAdding: .day, value: +2, to: Date.now)!, name: "Play with kids", icon: "figure.and.child.holdinghands"),
+        CalendarList(date: Calendar.current.date(byAdding: .day, value: +3, to: Date.now)!, name: "Programming", icon: "desktopcomputer"),
+    ]
     
     @Published var tasks = [
         Model(name: "Meditation", description: "Morning", image: "Meditation"),

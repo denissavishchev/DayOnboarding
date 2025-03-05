@@ -78,7 +78,7 @@ struct SwitchView: View {
                         .foregroundColor(.kDark.opacity(0.6))
                         .overlay(
                             VStack {
-                                Text("\(vm.formattedTime(vm.selectedTime))")
+                                Text("\(vm.formattedTime(vm.selectedTime, format: "dd-MM-yyyy"))")
                                     .font(.system(size: 18))
                                     .bold()
                                     .foregroundColor(.white)

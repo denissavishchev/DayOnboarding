@@ -11,7 +11,7 @@ struct CalendarList: Identifiable{
     var id = UUID().uuidString
     var date: Date
     var name: String
-    var info: String
+    var icon: String
 }
 
 struct RecomendedTask: Identifiable{

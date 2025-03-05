@@ -28,12 +28,6 @@ struct TodaysPlansView: View {
                                 .background(Color.gray.opacity(0.2))
                                 .cornerRadius(8)
                                 .padding(.horizontal, 18)
-                    TextField("Info", text: $vm.info)
-                                .padding()
-                                .frame(height: 36)
-                                .background(Color.gray.opacity(0.2))
-                                .cornerRadius(8)
-                                .padding(.horizontal, 18)
                     VStack {
                         DatePicker("Select a date", selection: $vm.date, displayedComponents: .date)
                             .datePickerStyle(WheelDatePickerStyle())
@@ -52,7 +46,7 @@ struct TodaysPlansView: View {
                             .foregroundColor(.kGrayLight)
                     }
                 }
-                .frame(height: 400)
+                .frame(height: 350)
             } else{
                 HStack {
                     if vm.calendarList.isEmpty{
@@ -64,10 +58,12 @@ struct TodaysPlansView: View {
                             VStack{
                                 ForEach(vm.calendarList){item in
                                     HStack{
-                                        Text(vm.formattedTime(item.date))
+                                        Image(systemName: "star.square.fill")
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(width: 24, height: 24)
+                                        Text(vm.formattedTime(item.date, format: "dd-MM-yyyy"))
                                         Text(item.name)
-                                        Text(item.info)
-                                        
                                     }
                                     .foregroundColor(.kGrayLight)
                                 }

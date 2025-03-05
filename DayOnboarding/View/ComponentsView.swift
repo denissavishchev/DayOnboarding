@@ -41,22 +41,8 @@ struct NavigationButton: View {
     
     var body: some View {
         NavigationLink(destination: destination){
-            ZStack{
-                RoundedRectangle(cornerRadius: 8)
-                    .foregroundColor(.kDark)
-                    .shadow(color: .white.opacity(0.4), radius: 2, y: 2)
-                    .overlay{
-                        Text(text)
-                            .font(.system(size: 14, weight: .bold, design: .rounded))
-                            .foregroundColor(.kGrayLight)
-                    }
-            }
-            .frame(width: 60, height: 30)
-            .background(.kDark)
+            BasicButton(text: text)
         }
         
     }
 }
-
-
-

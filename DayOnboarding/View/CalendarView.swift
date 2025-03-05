@@ -2,52 +2,69 @@ import SwiftUI
 
 struct CalendarView: View {
     
-    @State private var date = Date.now
-    let daysOfWeek = Date.capitalizedFirstLettersOfWeekdays
-    let columns = Array(repeating: GridItem(.flexible()), count: 7)
-    @State private var days: [Date] = []
+    @StateObject var vm = ViewModel()
     
     var body: some View {
-        VStack{
-            LabeledContent("Date/Time"){
-                DatePicker("", selection: $date)
-            }
-            HStack{
-                ForEach(daysOfWeek.indices, id: \.self){index in
-                        Text(daysOfWeek[index])
-                        .fontWeight(.black)
-                        .foregroundColor(.kBlue)
-                        .frame(maxWidth: .infinity)
+            VStack{
+                BackButton()
+                    
+                HStack{
+                    BasicButton(text: "create event", width: 120)
+                    Spacer()
+                    BasicButton(text: "create template", width: 120)
                 }
-            }
-            LazyVGrid(columns: columns){
-                ForEach(days, id: \.self){day in
-                    if day.monthInt != date.monthInt{
-                        Text("")
-                    }else{
-                        Text(day.formatted(.dateTime.day()))
-                            .fontWeight(.bold)
-                            .foregroundStyle(.secondary)
-                            .frame(maxWidth: .infinity, minHeight: 40)
-                            .background(
-                                Circle()
-                                    .foregroundStyle(
-                                        Date.now.startOfDay == day.startOfDay
-                                        ? .kRed.opacity(0.3)
-                                        : .blue.opacity(0.3))
-                            )
+                .padding(.horizontal, 18)
+                .padding(.vertical, 16)
+                ScrollView(.vertical, showsIndicators: false){
+                    VStack(spacing: 0){
+                        ForEach(Array(vm.events.enumerated()), id: \.element.id){index, event in
+                            ZStack(alignment: .leading){
+                                Rectangle()
+                                    .fill(Color.gray.opacity(0.8))
+                                    .frame(width: 2, height: 70)
+                                    .padding(.leading, 19)
+                                VStack{
+                                    Text(event.name)
+                                        .font(.system(size: 18, weight: .bold, design: .rounded))
+                                        .foregroundColor(.kGrayLight)
+                                    Text(vm.formattedTime(event.date, format: "dd-MM-yyyy"))
+                                        .font(.system(size: 18, weight: .bold, design: .rounded))
+                                        .foregroundColor(.kGrayLight)
+                                    
+                                }
+                                .padding(EdgeInsets(top: 18, leading: 25, bottom: 18, trailing: 18))
+                                .frame(width: UIScreen.main.bounds.width - 36, height: 50)
+                                .background(LinearGradient(colors: [.kBlue, .kBlue.opacity(0.5), .kGray.opacity(0.2), .kGray.opacity(0.2)], startPoint: .leading, endPoint: .trailing))
+                                .clipShape(RoundedRectangle(cornerRadius: 12))
+                                ZStack{
+                                    Image(systemName: event.icon)
+                                        .resizable()
+                                        .frame(width: 25, height: 25)
+                                        .scaledToFit()
+                                        .foregroundColor(.kGrayLight)
+                                }
+                                .frame(width: 40, height: 60)
+                                .background(
+                                    Capsule()
+                                )
+                                .overlay{
+                                    Capsule()
+                                        .stroke(.kGrayLight.opacity(0.8), lineWidth: 2)
+                                        .frame(width: 38, height: 58)
+                                }
+                                .shadow(color: .kDark, radius: 8, x: 2)
+                            }
+                            .frame(height: 70)
+                        }
                     }
                 }
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(.kDark)
+            .navigationBarHidden(true)
         }
-        .padding(.horizontal, 18)
-        .onAppear{
-            days = date.calendarDisplayDays
-        }
-        .onChange(of: date){
-            days = date.calendarDisplayDays
-        }
-    }
+        
+    
 }
 
 #Preview {
