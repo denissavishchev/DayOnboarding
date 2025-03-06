@@ -6,6 +6,8 @@ class ViewModel: ObservableObject{
     @Published var info: String = ""
     @Published var icon: String = ""
     @Published var date: Date = Date()
+    @Published var templatesName: String = ""
+    @Published var templatesIcon: String = "note.text"
     
     @Published var taskName: String = ""
     @Published var taskInfo: String = ""
@@ -19,6 +21,8 @@ class ViewModel: ObservableObject{
     @Published var isDay: Bool = false
     @Published var isAddViewOpen: Bool = false
     @Published var isRecomendationOpen: Bool = false
+    @Published var isTemplates: Bool = false
+    @Published var isCreateEvent: Bool = false
     
     @Published var text: String = ""
     @Published var description: String = ""
@@ -26,6 +30,14 @@ class ViewModel: ObservableObject{
     @Published var selectedTime = Date()
     
     @Published var calendarList: [CalendarList] = []
+    let icons: [String] = ["note.text", "list.bullet.clipboard.fill", "stopwatch.fill", "apps.ipad"]
+    
+    func addTemplate() {
+        let newItem = TemplatesModel(name: templatesName, icon: templatesIcon)
+        templates.append(newItem)
+        templatesName = ""
+        templatesIcon = ""
+        }
     
     func addToCalendar() {
         let newItem = CalendarList(date: date, name: name, icon: icon)
@@ -62,6 +74,12 @@ class ViewModel: ObservableObject{
         Model(name: "Meditation", description: "Morning", image: "Meditation"),
         Model(name: "Walking", description: "City park", image: "Globe"),
         Model(name: "Sport", description: "Running", image: "Ball"),
+    ]
+    
+    @Published var templates = [
+        TemplatesModel(name: "Programming", icon: "desktopcomputer"),
+        TemplatesModel(name: "Walking", icon: "figure.walk"),
+        TemplatesModel(name: "Gym", icon: "figure.strengthtraining.traditional"),
     ]
     
     @Published var recomendations = [

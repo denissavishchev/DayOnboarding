@@ -20,6 +20,7 @@
 		F21447DC2D74A85E0027B57B /* RecomendationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447DB2D74A85E0027B57B /* RecomendationsView.swift */; };
 		F21447DE2D776C880027B57B /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447DD2D776C880027B57B /* CalendarView.swift */; };
 		F21447E22D78F61F0027B57B /* BasicButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447E12D78F61F0027B57B /* BasicButton.swift */; };
+		F21447E42D7A39240027B57B /* TemplatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F21447E32D7A39240027B57B /* TemplatesView.swift */; };
 		F2ACF43E2D328E9800368E3E /* DayOnboardingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ACF43D2D328E9700368E3E /* DayOnboardingApp.swift */; };
 		F2ACF4402D328E9800368E3E /* LanguageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2ACF43F2D328E9800368E3E /* LanguageView.swift */; };
 		F2ACF4422D328E9A00368E3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F2ACF4412D328E9A00368E3E /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 		F21447DB2D74A85E0027B57B /* RecomendationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationsView.swift; sourceTree = "<group>"; };
 		F21447DD2D776C880027B57B /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		F21447E12D78F61F0027B57B /* BasicButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicButton.swift; sourceTree = "<group>"; };
+		F21447E32D7A39240027B57B /* TemplatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesView.swift; sourceTree = "<group>"; };
 		F2ACF43A2D328E9700368E3E /* DayOnboarding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DayOnboarding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F2ACF43D2D328E9700368E3E /* DayOnboardingApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayOnboardingApp.swift; sourceTree = "<group>"; };
 		F2ACF43F2D328E9800368E3E /* LanguageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				F21447D92D748FD30027B57B /* AddTaskView.swift */,
 				F21447DB2D74A85E0027B57B /* RecomendationsView.swift */,
 				F21447DD2D776C880027B57B /* CalendarView.swift */,
+				F21447E32D7A39240027B57B /* TemplatesView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				F2ACF4542D32DC4100368E3E /* BackButton.swift in Sources */,
 				F2ACF4402D328E9800368E3E /* LanguageView.swift in Sources */,
 				F2ACF43E2D328E9800368E3E /* DayOnboardingApp.swift in Sources */,
+				F21447E42D7A39240027B57B /* TemplatesView.swift in Sources */,
 				F21447CF2D72F4C50027B57B /* HabitInfoWidget.swift in Sources */,
 				F2ACF4522D32D90500368E3E /* SwitchView.swift in Sources */,
 				F2ACF4582D3311FD00368E3E /* FlagsButtons.swift in Sources */,

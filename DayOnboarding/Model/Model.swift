@@ -19,3 +19,9 @@ struct RecomendedTask: Identifiable{
     var name: String
     var info: String
 }
+
+struct TemplatesModel: Identifiable{
+    var id = UUID().uuidString
+    var name: String
+    var icon: String
+}

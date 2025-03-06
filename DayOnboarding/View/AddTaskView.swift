@@ -4,7 +4,6 @@ struct AddTaskView: View {
     
     @StateObject var vm = ViewModel()
     let colors: [Color] = [.kGreen, .kRed, .kIndigo, .kYellow]
-    let icons: [String] = ["note.text", "list.bullet.clipboard.fill", "stopwatch.fill", "apps.ipad"]
     
     var body: some View {
         ZStack{
@@ -54,7 +53,7 @@ struct AddTaskView: View {
                     }
                     
                     HStack {
-                        ForEach(icons, id: \.self){icon in
+                        ForEach(vm.icons, id: \.self){icon in
                                 RoundedRectangle(cornerRadius: 12)
                                 .frame(width: 30, height: 30)
                                 .foregroundColor(.kDark)
