@@ -11,15 +11,15 @@ struct ComponentsView: View {
                 
                 HabitView()
                 
-                    HStack(alignment: .bottom, spacing: 20){
-                        NavigationButton(text: "One", destination: AnyView(RecomendationsView()))
-                        NavigationButton(text: "Calendar", destination: AnyView(CalendarView()))
-                        AddTaskView()
-                        NavigationButton(text: "Recomendations", destination: AnyView(RecomendationsView()))
-                        NavigationButton(text: "Four", destination: AnyView(RecomendationsView()))
-                    }
-                    .frame(maxWidth: .infinity)
-                    .background(.kDark)
+                HStack(alignment: .bottom, spacing: 15){
+                    NavigationButton(text: "fossil.shell.fill", destination: AnyView(RecomendationsView()))
+                    NavigationButton(text: "calendar", destination: AnyView(CalendarView()))
+                    AddTaskView()
+                    NavigationButton(text: "list.bullet.clipboard.fill", destination: AnyView(RecomendationsView()))
+                    NavigationButton(text: "gear", destination: AnyView(RecomendationsView()))
+                }
+                .background(.kDark)
+                    
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.kDark)
@@ -41,7 +41,7 @@ struct NavigationButton: View {
     
     var body: some View {
         NavigationLink(destination: destination){
-            BasicButton(text: text)
+            BasicButton(icon: text)
         }
         
     }
