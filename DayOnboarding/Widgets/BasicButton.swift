@@ -17,6 +17,5 @@ struct BasicButton: View {
                 }
         }
         .frame(width: width, height: 30)
-        .background(.kDark)
     }
 }

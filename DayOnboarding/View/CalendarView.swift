@@ -90,37 +90,4 @@ struct CalendarView: View {
 
 
 
-struct CreateEventView: View {
-    
-    @StateObject var vm: ViewModel
-    
-    var body: some View {
-        VStack{
-            HStack {
-                Spacer()
-                Button{
-                    withAnimation{
-                        vm.isCreateEvent = false
-                    }
-                }label: {
-                    Image(systemName: "xmark.circle.fill")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 30)
-                        .foregroundColor(.kGrayLight)
-                }
-            }
 
-        }
-        .padding(18)
-        .frame(width: UIScreen.main.bounds.width - 36, height: 650)
-        .background(LinearGradient(colors: [.kDark, .kBlue], startPoint: .topLeading, endPoint: .bottomTrailing))
-        .clipShape(RoundedRectangle(cornerRadius: 18))
-        .overlay{
-            RoundedRectangle(cornerRadius: 18)
-                .stroke(.kBlue.opacity(0.7), lineWidth: 1)
-        }
-        .offset(y: vm.isCreateEvent ? 0 : 700)
-        .animation(.spring(response: 0.5, dampingFraction: 0.7), value: vm.isCreateEvent)
-    }
-}
